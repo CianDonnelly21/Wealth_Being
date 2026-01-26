@@ -36,9 +36,7 @@ export default function registerPage() {
             return;
         }
 
-        const url = `/api/register?fullName=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(createPassword)}`;
-
-        runDBCallAsync(url);
+        runDBCallAsync(`/api/register?fullName=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(createPassword)}`)
     };
 
     async function runDBCallAsync(url) {
