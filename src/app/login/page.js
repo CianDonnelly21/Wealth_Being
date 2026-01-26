@@ -35,7 +35,7 @@ export default function loginPage() {
         return;
     }
 
-    runDBCallAsync(`http://localhost:3000/api/login?email=${email}&password=${password}`)
+    runDBCallAsync(`/api/login?email=${email}&password=${password}`)
 
 };
 
