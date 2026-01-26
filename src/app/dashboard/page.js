@@ -103,7 +103,7 @@ export default function Page() {
           <CardMedia
             component="img"
             height="250"
-            image="/images/moodTrackerIcn.jpeg"
+            image="/images/MoodTrackerIcn.jpeg"
             alt="mood tracker icon"
           />
         <CardContent sx={{ color: '#5FA3A6'}}>
