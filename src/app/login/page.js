@@ -35,7 +35,7 @@ export default function loginPage() {
         return;
     }
 
-    runDBCallAsync(`https://wealth-being.onrender.com/api/login?email=${email}&password=${password}`)
+    runDBCallAsync(`/api/login?email=${email}&password=${password}`)
 
 };
 

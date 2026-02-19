@@ -36,7 +36,7 @@ export default function registerPage() {
             return;
         }
 
-        runDBCallAsync(`https://wealth-being.onrender.com/api/register?fullName=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(createPassword)}`)
+        runDBCallAsync(`/api/register?fullName=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(createPassword)}`)
     };
 
     async function runDBCallAsync(url) {
