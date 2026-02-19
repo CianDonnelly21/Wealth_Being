@@ -27,7 +27,7 @@ export default function loginPage() {
     let password = data.get("password")
 
     console.log("Sent Email: " + email)
-    console.log("Sent Password: " + password)
+    console.log("Sent Password: ******")
 
     //Empty Field Text
      if (!email || !password) {
@@ -35,7 +35,7 @@ export default function loginPage() {
         return;
     }
 
-    runDBCallAsync(`/api/login?email=${email}&password=${password}`)
+    runDBCallAsync(`http://127.0.0.1:8000/api/login?email=${email}&password=${password}`)
 
 };
 

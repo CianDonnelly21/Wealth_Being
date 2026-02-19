@@ -36,7 +36,7 @@ export default function registerPage() {
             return;
         }
 
-        runDBCallAsync(`/api/register?fullName=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(createPassword)}`)
+        runDBCallAsync(`http://127.0.0.1:8000/api/register?fullName=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(createPassword)}`)
     };
 
     async function runDBCallAsync(url) {
@@ -44,7 +44,7 @@ export default function registerPage() {
         const res = await fetch(url);
         const data = await res.json();
 
-        if (data.Valid) {
+        if (data.valid) {
             window.location.href = "/login";
         } else {
             alert(data.message || "Registration failed");
@@ -174,7 +174,7 @@ export default function registerPage() {
                                            required
                                            name = "createPassword"
                                            label = "Create Password"
-                                           type = "createPassword"
+                                           type = "password"
                                            id = "createPassword"
                                            autoComplete = "createPassword"
                                        />
@@ -185,7 +185,7 @@ export default function registerPage() {
                                            required
                                            name = "verifyPassword"
                                            label = "Verify Password"
-                                           type = "verifyPassword"
+                                           type = "password"
                                            id = "verifyPassword"
                                            autoComplete = "verifyPassword"
                                        />
