@@ -11,7 +11,7 @@ router = APIRouter()
 client = MongoClient(os.getenv('MONGO_URI'))
 db = client[os.getenv('DATABASE_NAME')]
 
-@router.get('/api/register')
+@router.get('/server/register')
 def register(fullName: str, email: str, password: str):
     existing = db.Login.find_one({'email': email})
 

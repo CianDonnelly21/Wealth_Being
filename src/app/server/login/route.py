@@ -10,7 +10,7 @@ router = APIRouter()
 client = MongoClient(os.getenv('MONGO_URI'))
 db = client[os.getenv('DATABASE_NAME')]
 
-@router.get('/api/login')
+@router.get('/server/login')
 def login(email: str, password: str):
     user = db.Login.find_one({'email': email})
 

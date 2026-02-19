@@ -25,7 +25,7 @@ export default function DiaryPage() {
 
     const fetchEntries = async () => {
         try {
-            const response = await fetch('/api/diary');
+            const response = await fetch('/server/diary');
             const result = await response.json();
             if (result.valid) {
                 setPastEntries(result.entries);
@@ -46,7 +46,7 @@ export default function DiaryPage() {
             timestamp: new Date().toISOString(), // current timestamp in ISO format (YY-MM-DDTHH:mm:ss.sssZ)
           };
 
-        await fetch('/api/diary', {
+        await fetch('/server/diary', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

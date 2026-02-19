@@ -35,7 +35,7 @@ export default function loginPage() {
         return;
     }
 
-    runDBCallAsync(`/api/login?email=${email}&password=${password}`)
+    runDBCallAsync(`http://127.0.0.1:8000/server/login?email=${email}&password=${password}`)
 
 };
 
@@ -45,7 +45,7 @@ export default function loginPage() {
 
         if (data.valid) {
             console.log("login is valid!");
-            window.location.href = "/dashboard";
+            window.location.href = "/client/dashboard";
         }
 
         else {
@@ -201,7 +201,7 @@ export default function loginPage() {
                                             fontSize: '15px',
                                             borderRadius: 2
                                         }}
-                                            onClick={() => window.location.href = "/register"}
+                                            onClick={() => window.location.href = "/client/register"}
                                         >
                                             REGISTER HERE
                                         </Button>

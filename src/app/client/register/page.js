@@ -24,7 +24,7 @@ export default function registerPage() {
             return;
         }
 
-        //Passsword Check
+        //Password Check
         if (createPassword !== verifyPassword) {
             alert("Passwords don't match!");
             return;
@@ -36,7 +36,7 @@ export default function registerPage() {
             return;
         }
 
-        runDBCallAsync(`/api/register?fullName=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(createPassword)}`)
+        runDBCallAsync(`http://127.0.0.1:8000/server/register?fullName=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(createPassword)}`)
     };
 
     async function runDBCallAsync(url) {
@@ -45,7 +45,7 @@ export default function registerPage() {
         const data = await res.json();
 
         if (data.valid) {
-            window.location.href = "/login";
+            window.location.href = "/client/login";
         } else {
             alert(data.message || "Registration failed");
         }
@@ -234,7 +234,7 @@ export default function registerPage() {
                                                fontSize: '15px',
                                                borderRadius: 2
                                            }}
-                                           onClick={() => window.location.href = "/login"}
+                                           onClick={() => window.location.href = "/client/login"}
                                        >
                                            LOGIN HERE
                                        </Button>
