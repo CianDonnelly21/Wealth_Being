@@ -39,7 +39,7 @@ export default function Page() {
           </CardContent>
           </CardActionArea>
           <CardActions>
-            <Link href="/diary" >
+            <Link href="/client/diary" >
             <Button size="small" sx={{ color: '#5FA3A6', fontWeight: 'bold'}}>
               Visit
             </Button>
