@@ -35,8 +35,9 @@ export default function loginPage() {
         return;
     }
 
-    runDBCallAsync(`http://127.0.0.1:8000/server/login?email=${email}&password=${password}`)
+    runDBCallAsync(`${process.env.NEXT_PUBLIC_API_URL}/server/login?email=${email}&password=${password}`)
 
+    console.log(process.env.NEXT_PUBLIC_API_URL)
 };
 
     async function runDBCallAsync(url) {

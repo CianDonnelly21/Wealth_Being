@@ -37,6 +37,7 @@ export default function registerPage() {
         }
 
         runDBCallAsync(`${process.env.NEXT_PUBLIC_API_URL}/server/register?fullName=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(createPassword)}`)
+
         console.log(process.env.NEXT_PUBLIC_API_URL)
     };
 
