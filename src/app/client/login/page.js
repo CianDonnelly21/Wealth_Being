@@ -57,7 +57,7 @@ export default function loginPage() {
 
     //*****************************************************************************************************************
     //Line 10:
-        //When an occurence happens in the browser (event), the browser looks for something that is
+        //When an occurrence happens in the browser (event), the browser looks for something that is
             //Designed to handle it then calls the function
 
     //Line 14:
