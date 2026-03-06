@@ -8,3 +8,6 @@ https://wealth-being-jet.vercel.app
 Client folder is for frontend
 
 Server folder is for backend
+
+Current Vercel Deployment, Part 2:
+https://wealthbeing.vercel.app
