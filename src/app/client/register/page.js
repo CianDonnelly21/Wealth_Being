@@ -36,7 +36,8 @@ export default function registerPage() {
             return;
         }
 
-        runDBCallAsync(`http://127.0.0.1:8000/server/register?fullName=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(createPassword)}`)
+        runDBCallAsync(`${process.env.NEXT_PUBLIC_API_URL}/server/register?fullName=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(createPassword)}`)
+        console.log(process.env.NEXT_PUBLIC_API_URL)
     };
 
     async function runDBCallAsync(url) {
