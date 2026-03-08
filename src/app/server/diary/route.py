@@ -1,11 +1,10 @@
 from fastapi import APIRouter, Request
-from pymongo import MongoClient
+from database import getDiaryCollection
 
 router = APIRouter()
 
-MONGO_URI = "mongodb+srv://root:myPassword123@cluster0.jf7grv6.mongodb.net/?appName=Cluster0"
-
 #adding a diary entry 
+@router.post('/diary/add')
 async def add_entry(request: Request):
 
     body = await request.json()
@@ -14,15 +13,12 @@ async def add_entry(request: Request):
 
     if not data or not timestamp:
         print("No data or timestamp")
-        return("Missing required fields")
+        return({"valid": False, "message": "Missing required fields"})
     
-    client = MongoClient(MONGO_URI)
-
     try:
         print("Connected to MongoDB")
 
-        db = client["WealthBeing"]
-        diary = db["diary_entry"]
+        diary = getDiaryCollection()
 
         result = diary.insert_one({
             "data": data,
@@ -41,19 +37,13 @@ async def add_entry(request: Request):
             "error": str(error)
         }
 
-    finally:
-        client.close()
-
-#get all entries
-@router.get("/")
-
+# get all entries for diary entry history
+@router.get("/diary/entries")
 def get_entries():
     print("Getting all of diary entries")
-    client = MongoClient(MONGO_URI)
 
     try:
-        db = client["WealthBeing"]
-        diary = db["diary_entry"]
+        diary = getDiaryCollection()
 
         entries = list(diary.find().sort("timestamp", -1))
 
@@ -65,6 +55,3 @@ def get_entries():
     except Exception as error:
         print("Mongodb error", str(error))
         return {"valid": False, "error": str(error)}
-
-    finally:
-        client.close()
