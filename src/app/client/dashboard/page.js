@@ -12,6 +12,11 @@ import CardActionArea from '@mui/material/CardActionArea';
 import CardActions from '@mui/material/CardActions';
 import Header from '../components/Header';
 import Grid from '@mui/material/Grid';
+import ArticleIcon from '@mui/icons-material/Article';
+import ChatIcon from '@mui/icons-material/Chat';
+import InsightsIcon from '@mui/icons-material/Insights';
+import MoodIcon from '@mui/icons-material/Mood';
+import { Insights } from '@mui/icons-material';
 
 
 export default function Page() {
@@ -23,16 +28,19 @@ export default function Page() {
           <Typography component="h1" variant="h3" sx={{ color: '#5fa3a6', textAlign: 'center', mb: 3 }} className={`${pacifico.className} font-pacifico`}>Quote of the Day</Typography>
 
       <Grid container spacing={3} justifyContent="center">
-
+      {/* diary*/}
       <Grid item xs={12} md={6}>
         <Card sx={{ maxWidth: 400, margin: 'auto', borderRadius: 2 }}>
           <CardActionArea>
-          <CardMedia
-          component="img"
-          height="250"
-          image="/images/diaryIcon.jpeg"
-          alt="diary icon"
-          />
+          <Box sx={{
+            height: 150,
+            backgroundColor: '#E9F1EC',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+            <ArticleIcon sx={{ fontSize: 80, color: '#5FA3A6' }} />
+          </Box>
           <CardContent sx={{ color: '#5FA3A6'} }>
             <Typography gutterBottom variant="h5" component="div">Diary</Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>Write down your thoughts and how you were feeling throughout your day today.</Typography>
@@ -47,16 +55,19 @@ export default function Page() {
             </CardActions>
         </Card>
       </Grid>
-
+      {/* chatbot*/}
       <Grid item xs={12} md={6}>
         <Card sx={{ maxWidth: 400, margin: 'auto' }}>
         <CardActionArea>
-          <CardMedia
-            component="img"
-            height="250"
-            image="/images/chatbotIcon.jpeg"
-            alt="chatbot icon"
-          />
+         <Box sx={{
+          height: 150,
+          backgroundColor: '#E9F1EC',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+          }}>
+          <ChatIcon sx={{ fontSize: 80, color: '#5FA3A6' }} />
+        </Box>
         <CardContent sx={{ color: '#5FA3A6'}}>
         <Typography gutterBottom variant="h5" component="div">Chatbot</Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>Talk to our supportive chatbot and get feedback to improve your experience.</Typography>
@@ -72,16 +83,19 @@ export default function Page() {
         </Card>
       </Grid>
 
-
+    {/* analytics*/}      
     <Grid item xs={12} md={6}>
       <Card sx={{ maxWidth: 400, margin: 'auto' }}>
         <CardActionArea>
-          <CardMedia
-            component="img"
-            height="250"
-            image="/images/goalsIcon.jpeg"
-            alt="goals icon"
-          />
+          <Box sx={{
+          height: 150,
+          backgroundColor: '#E9F1EC',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+          }}>
+          <InsightsIcon sx={{ fontSize: 80, color: '#5FA3A6' }} />
+        </Box>
         <CardContent sx={{ color: '#5FA3A6'}}>
         <Typography gutterBottom variant="h5" component="div">Analytics</Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>View a graph of your feelings overtime to see how you are progressing.</Typography>
@@ -97,15 +111,19 @@ export default function Page() {
         </Card>
       </Grid>
 
+    {/* moodtracker*/}
     <Grid item xs={12} md={6}>
       <Card sx={{ maxWidth: 400, margin: 'auto' }}>
         <CardActionArea>
-          <CardMedia
-            component="img"
-            height="250"
-            image="/images/MoodTrackerIcn.jpeg"
-            alt="mood tracker icon"
-          />
+          <Box sx={{
+          height: 150,
+          backgroundColor: '#E9F1EC',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+          <MoodIcon sx={{ fontSize: 80, color: '#5FA3A6' }} />
+        </Box>
         <CardContent sx={{ color: '#5FA3A6'}}>
         <Typography gutterBottom variant="h5" component="div">Mood Tracker</Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>Document your mood on a scale of 1 - 5 and choose your mood to best represent how you felt today. </Typography>
