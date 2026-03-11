@@ -1,11 +1,15 @@
 import bcrypt
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
 from database import getLoginCollection
 
 router = APIRouter()
 
-@router.get('/server/login')
-def login(email: str, password: str):
+@router.post('/login')
+async def login(request: Request):
+    body = await request.json()
+    email = body.get("email")
+    password = body.get("password")
+    
     users = getLoginCollection()
     user = users.find_one({'email': email})
 

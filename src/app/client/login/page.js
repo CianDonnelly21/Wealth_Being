@@ -35,13 +35,15 @@ export default function loginPage() {
         return;
     }
 
-    runDBCallAsync(`${process.env.NEXT_PUBLIC_API_URL}/server/login?email=${email}&password=${password}`)
-
-    console.log(process.env.NEXT_PUBLIC_API_URL)
+    runDBCallAsync({email, password})
 };
 
-    async function runDBCallAsync(url) {
-        const res = await fetch(url);
+    async function runDBCallAsync(payload) {
+        const res = await fetch('/server/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify(payload),
+        });
         const data = await res.json();
 
         if (data.valid) {
