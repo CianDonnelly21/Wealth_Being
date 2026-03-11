@@ -25,7 +25,7 @@ export default function DiaryPage() {
 
     const fetchEntries = async () => {
         try {
-            const response = await fetch('/server/diary');
+            const response = await fetch('/server/diary/entries');
             const result = await response.json();
             if (result.valid) {
                 setPastEntries(result.entries);
