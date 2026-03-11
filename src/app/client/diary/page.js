@@ -46,7 +46,7 @@ export default function DiaryPage() {
             timestamp: new Date().toISOString(), // current timestamp in ISO format (YY-MM-DDTHH:mm:ss.sssZ)
           };
 
-        await fetch('/server/diary', {
+        await fetch('/server/diary/add', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
