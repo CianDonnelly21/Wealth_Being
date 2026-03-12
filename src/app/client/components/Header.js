@@ -35,7 +35,7 @@ export default function Header() {
       <Box sx={{ width:250 }} role="presentation" onClick={toggleDrawer(false)}>
         <List>
           {['Home', 'Diary', 'Mood', 'Analytics'].map((text) => (
-            <ListItem key={text} disablePadding>
+            <ListItem key={text} sx={{fontSize: 40, color: '#5FA3A6'}} disablePadding>
             <ListItemButton>
               <ListItemText primary={text} />
               </ListItemButton>
@@ -66,17 +66,8 @@ export default function Header() {
 
         //icons
         <Box>
-          <IconButton href="/" sx={{ padding: '12px', margin: '0 8px' }}>
+          <IconButton href="/client/dashboard" sx={{ padding: '12px', margin: '0 8px' }}>
             <HomeIcon sx={{fontSize: 40, color: '#5FA3A6'}}></HomeIcon>
-          </IconButton>
-          <IconButton href="/stats" sx={{ padding: '12px', margin: '0 8px' }}>
-            <InsightsIcon sx={{fontSize: 40, color: '#5FA3A6'}}></InsightsIcon>
-          </IconButton>
-          <IconButton href="/mood" sx={{ padding: '12px', margin: '0 8px' }}>
-            <MoodIcon sx={{fontSize: 40, color: '#5FA3A6'}}></MoodIcon>
-          </IconButton>
-          <IconButton href="/diary" sx={{ padding: '12px', margin: '0 8px' }}>
-            <ArticleIcon sx={{fontSize: 40, color: '#5FA3A6'}}></ArticleIcon>
           </IconButton>
         </Box>
       </Toolbar>

@@ -74,7 +74,7 @@ export default function Page() {
         </CardContent>
         </CardActionArea>
         <CardActions>
-          <Link href="/chatbot" >
+          <Link href="/client/chatbot" >
           <Button size="small" sx={{ color: '#5FA3A6', fontWeight: 'bold'}}>
             Visit
           </Button>
@@ -102,7 +102,7 @@ export default function Page() {
         </CardContent>
         </CardActionArea>
         <CardActions>
-          <Link href="/analytics" >
+          <Link href="/client/analytics" >
           <Button size="small" sx={{ color: '#5FA3A6', fontWeight: 'bold'}}>
             Visit
           </Button>
@@ -130,7 +130,7 @@ export default function Page() {
         </CardContent>
         </CardActionArea>
         <CardActions>
-          <Link href="/moodTracker" >
+          <Link href="/client/moodtracker" >
           <Button size="small" sx={{ color: '#5FA3A6', fontWeight: 'bold'}}>
             Visit
           </Button>
