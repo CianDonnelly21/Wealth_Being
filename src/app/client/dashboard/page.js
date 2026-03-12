@@ -19,13 +19,28 @@ import MoodIcon from '@mui/icons-material/Mood';
 import { Insights } from '@mui/icons-material';
 
 
+
 export default function Page() {
+
+  const positiveQuotes = [
+    {text: "The greatest wealth is health."},
+    {text: "Life is a journey."},
+    {text:"Everyday is a new beginning."},
+    {text:"The happiness of your life depends on the quality of your thoughts."},
+    {text:"The only way to do great work is to love what you do."},
+    {text:"You don't have to see the whole staircase, just take the first step."}
+  ]
+
+  var daily = 86400000;
+  var minute = 60000; {/*debug*/}
+
+  const quoteOfTheDay = positiveQuotes[Math.floor(Date.now() / minute) % positiveQuotes.length];
   return (
 
       <Box sx={{minHeight: '100vh', backgroundColor: '#E9F1EC', display:'flex', flexDirection: 'column' }}>
         <Header />
         <Container maxWidth="lg" sx={{ backgroundColor: '#FAFBF8', padding: 4, borderRadius: 2, mt: 2 }}>
-          <Typography component="h1" variant="h3" sx={{ color: '#5fa3a6', textAlign: 'center', mb: 3 }} className={`${pacifico.className} font-pacifico`}>Quote of the Day</Typography>
+          <Typography component="h1" variant="h3" sx={{ color: '#5fa3a6', textAlign: 'center', mb: 3 }} className={`${pacifico.className} font-pacifico`}>"{quoteOfTheDay.text}"</Typography>
 
       <Grid container spacing={3} justifyContent="center">
       {/* diary*/}
