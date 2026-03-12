@@ -36,14 +36,18 @@ export default function registerPage() {
             return;
         }
 
-        runDBCallAsync(`${process.env.NEXT_PUBLIC_API_URL}/server/register?fullName=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(createPassword)}`)
+        runDBCallAsync({fullName, email, password: createPassword})
 
         console.log(process.env.NEXT_PUBLIC_API_URL)
     };
 
-    async function runDBCallAsync(url) {
+    async function runDBCallAsync(payload) {
 
-        const res = await fetch(url);
+        const res = await fetch('/server/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify(payload),
+        });
         const data = await res.json();
 
         if (data.valid) {

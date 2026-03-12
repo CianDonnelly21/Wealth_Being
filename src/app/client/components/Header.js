@@ -5,31 +5,73 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
-import Image from 'next/image';
+import MoodIcon from '@mui/icons-material/Mood';
+import ArticleIcon from '@mui/icons-material/Article';
+import HomeIcon from '@mui/icons-material/Home';
+import InsightsIcon from '@mui/icons-material/Insights';
+import Button from '@mui/material/Button';
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import { useState } from 'react';
+import DensityMediumIcon from '@mui/icons-material/DensityMedium';
+
+
+
 import { pacifico } from '../fonts/fonts';
 
 export default function Header() {
+
+   const [open, setOpen] = useState(false);
+    const toggleDrawer = (newOpen) => () => {
+      setOpen(newOpen);
+    };
+
+    const DrawerList = (
+      <Box sx={{ width:250 }} role="presentation" onClick={toggleDrawer(false)}>
+        <List>
+          {['Home', 'Diary', 'Mood', 'Analytics'].map((text) => (
+            <ListItem key={text} sx={{fontSize: 40, color: '#5FA3A6'}} disablePadding>
+            <ListItemButton>
+              <ListItemText primary={text} />
+              </ListItemButton>
+              </ListItem>
+          ))}
+        </List>
+        <Divider />
+      </Box>
+    )
+
   return (
+    
+    
     <AppBar position="static" sx={{ bgcolor: 'white', boxShadow: 1, minHeight: '80px' }}>
       <Toolbar sx={{ minHeight: '80px !important', padding: '0 24px' }}>
+
+        <Button onClick={toggleDrawer(true)}>
+          <DensityMediumIcon sx={{fontSize: 40, color: '#5FA3A6'}}></DensityMediumIcon>
+          </Button>
+        <Drawer open={open} onClose={toggleDrawer(false)}>
+        {DrawerList}
+        </Drawer>
+
+        //logo
         <Typography variant="h3" className={`${pacifico.className} font-pacifico`} sx={{ flexGrow: 1, color: '#5fa3a6', fontFamily: 'Pacifico, cursive', fontSize: '2.5rem' }}>
           WealthBeing 
         </Typography>
+
+        //icons
         <Box>
-          <IconButton href="/" sx={{ padding: '12px', margin: '0 8px' }}>
-            <Image src="/images/icons/homeIcon.png" alt="Home" width={48} height={48} />
-          </IconButton>
-          <IconButton href="/stats" sx={{ padding: '12px', margin: '0 8px' }}>
-            <Image src="/images/icons/analyticsIcon.png" alt="Stats" width={48} height={48} />
-          </IconButton>
-          <IconButton href="/mood" sx={{ padding: '12px', margin: '0 8px' }}>
-            <Image src="/images/icons/moodIcon.png" alt="Mood" width={48} height={48} />
-          </IconButton>
-          <IconButton href="/diary" sx={{ padding: '12px', margin: '0 8px' }}>
-            <Image src="/images/icons/diaryIcon.png" alt="Diary" width={48} height={48} />
+          <IconButton href="/client/dashboard" sx={{ padding: '12px', margin: '0 8px' }}>
+            <HomeIcon sx={{fontSize: 40, color: '#5FA3A6'}}></HomeIcon>
           </IconButton>
         </Box>
       </Toolbar>
     </AppBar>
+
   );
 }
