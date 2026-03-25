@@ -10,6 +10,7 @@ const data = [
     { day: 'Thu', mental: 8, physical: 7, emotional: 3 },
     { day: 'Fri', mental: 6, physical: 8, emotional: 4 },
     { day: 'Sat', mental: 7, physical: 9, emotional: 2 },
+    { day: 'Sun', mental: 6, physical: 7, emotional: 3 }
 ];
 
 const avgMentalScore =
@@ -45,17 +46,18 @@ export default function analyticsPage() {
                 sx = {{
                     mb: 3,
                     color: '#1F2937',
-                    textAlign: 'center'
+                    textAlign: 'center',
+                    marginTop: 2
                 }}
             >
-                Your Wellness Analytics
+                Your Results
             </Typography>
 
             <LineChart sx = {{
                 marginRight: 8,
             }}
                 dataset = {data}
-                xAxis = {[{ data: [1, 2, 3, 5, 8, 10] }]}
+                xAxis = {[{ scaleType: "point", dataKey: "day" }]}
                 series = {[
                     {
                         dataKey: "mental",
@@ -108,10 +110,11 @@ export default function analyticsPage() {
                 </Typography>
             </Box>
 
+            <Typography variant = 'h6' sx = {{textAlign: 'center', paddingBottom: 2}}>Overall Results</Typography>
             <Box sx = {{ display: 'flex', gap: 2, mb: 3, justifyContent: 'center' }}>
-            <Box sx = {{ p: 2, background: 'white', borderRadius: 2 }}>🧠 Mental: {avgMentalScore}</Box>
-            <Box sx = {{ p: 2, background: 'white', borderRadius: 2 }}>🏃‍➡️ Physical: {avgPhysicalScore}</Box>
-            <Box sx = {{ p: 2, background: 'white', borderRadius: 2 }}>😪 Emotional: {avgEmotionalScore}</Box>
+            <Box sx = {{ p: 2, background: 'white', borderRadius: 2 }}>🧠 Mental: {avgMentalScore.toFixed(1)}</Box>
+            <Box sx = {{ p: 2, background: 'white', borderRadius: 2 }}>🏃‍➡️ Physical: {avgPhysicalScore.toFixed(1)}</Box>
+            <Box sx = {{ p: 2, background: 'white', borderRadius: 2 }}>😪 Emotional: {avgEmotionalScore.toFixed(1)}</Box>
             </Box>
         </Box>
     );
