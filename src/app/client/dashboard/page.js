@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
@@ -17,10 +19,16 @@ import ChatIcon from '@mui/icons-material/Chat';
 import InsightsIcon from '@mui/icons-material/Insights';
 import MoodIcon from '@mui/icons-material/Mood';
 import { Insights } from '@mui/icons-material';
+import useRequireAuth from '../hooks/useRequireAuth';
 
 
 
 export default function Page() {
+  const isCheckingAuth = useRequireAuth();
+
+  if (isCheckingAuth) {
+    return null;
+  }
 
   const positiveQuotes = [
     {text: "The greatest wealth is health."},

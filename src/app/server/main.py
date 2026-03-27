@@ -3,8 +3,18 @@ from login.route import router as login_router
 from register.route import router as register_router
 from diary.route import router as diary_router
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware.sessions import SessionMiddleware
+import os
 
 app = FastAPI()
+
+app.add_middleware(
+    SessionMiddleware,
+    secret_key=os.getenv("SESSION_SECRET", "session123"),
+    same_site="lax",
+    https_only=False,
+    max_age=60 * 60 * 24 * 7,
+)
 
 origins = [
     "http://localhost:3000",

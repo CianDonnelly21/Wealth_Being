@@ -1,11 +1,12 @@
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, Request, Depends
+from auth.deps import require_user
 from database import getDiaryCollection
 
 router = APIRouter()
 
 #adding a diary entry 
 @router.post('/diary/add')
-async def add_entry(request: Request):
+async def add_entry(request: Request, session=Depends(require_user)):
 
     body = await request.json()
     data = body.get("data")
@@ -21,6 +22,7 @@ async def add_entry(request: Request):
         diary = getDiaryCollection()
 
         result = diary.insert_one({
+            "userId": session["user_id"],
             "data": data,
             "timestamp": timestamp
         })
@@ -39,13 +41,13 @@ async def add_entry(request: Request):
 
 # get all entries for diary entry history
 @router.get("/diary/entries")
-def get_entries():
+def get_entries(session=Depends(require_user)):
     print("Getting all of diary entries")
 
     try:
         diary = getDiaryCollection()
 
-        entries = list(diary.find().sort("timestamp", -1))
+        entries = list(diary.find({"userId": session["user_id"]}).sort("timestamp", -1))
 
         for entry in entries:
             entry["_id"] = str(entry["_id"])

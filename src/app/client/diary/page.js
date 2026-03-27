@@ -10,18 +10,23 @@ import CardContent from '@mui/material/CardContent';
 import Header from '../components/Header';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import useRequireAuth from '../hooks/useRequireAuth';
 
 
 
 export default function DiaryPage() {
+    const isCheckingAuth = useRequireAuth();
 
     const [entry, setEntry] = useState('');
     const [pastEntries, setPastEntries] = useState([]);
 
     // Fetch entries from db
     useEffect(() => {
+        if (isCheckingAuth) {
+            return;
+        }
         fetchEntries();
-    }, []);
+    }, [isCheckingAuth]);
 
     const fetchEntries = async () => {
         try {
@@ -57,6 +62,10 @@ export default function DiaryPage() {
         
         console.log("Diary Entry Submitted: " + entry); //debug log
         setEntry('');
+    }
+
+    if (isCheckingAuth) {
+        return null;
     }
 
     return (

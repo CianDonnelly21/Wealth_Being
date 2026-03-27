@@ -31,6 +31,17 @@ export default function Header() {
       setOpen(newOpen);
     };
 
+    const handleLogout = async () => {
+      try {
+        await fetch('/server/logout', {
+          method: 'POST',
+          credentials: 'include',
+        });
+      } finally {
+        window.location.href = '/client/login';
+      }
+    };
+
     const DrawerList = (
       <Box sx={{ width:250 }} role="presentation" onClick={toggleDrawer(false)}>
         <List>
@@ -59,16 +70,19 @@ export default function Header() {
         {DrawerList}
         </Drawer>
 
-        //logo
+        {/* logo */}
         <Typography variant="h3" className={`${pacifico.className} font-pacifico`} sx={{ flexGrow: 1, color: '#5fa3a6', fontFamily: 'Pacifico, cursive', fontSize: '2.5rem' }}>
           WealthBeing 
         </Typography>
 
-        //icons
+        {/* icons */}
         <Box>
           <IconButton href="/client/dashboard" sx={{ padding: '12px', margin: '0 8px' }}>
             <HomeIcon sx={{fontSize: 40, color: '#5FA3A6'}}></HomeIcon>
           </IconButton>
+          <Button onClick={handleLogout} sx={{ color: '#5FA3A6', fontWeight: 'bold' }}>
+            Logout
+          </Button>
         </Box>
       </Toolbar>
     </AppBar>

@@ -13,6 +13,7 @@ import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied
 import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAltOutlined';
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
+import useRequireAuth from '../hooks/useRequireAuth';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
@@ -64,6 +65,12 @@ IconContainer.propTypes = {
 };
 
 export default function page() {
+  const isCheckingAuth = useRequireAuth();
+
+  if (isCheckingAuth) {
+    return null;
+  }
+
     return(
         <Box sx={{minHeight: '100vh', backgroundColor: '#E9F1EC', display:'flex', flexDirection: 'column' }}>
             <Header />
