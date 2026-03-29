@@ -42,19 +42,26 @@ export default function Header() {
       }
     };
 
+    const navLinks = [
+      {text: 'Home', href: '/client/dashboard'},
+      {text: 'Diary', href: '/client/diary'},
+      {text: 'Mood Tracker', href: '/client/moodtracker'},
+      {text: 'Analytics', href: '/client/analytics'}
+    ]
+
     const DrawerList = (
-      <Box sx={{ width:250 }} role="presentation" onClick={toggleDrawer(false)}>
-        <List>
-          {['Home', 'Diary', 'Mood', 'Analytics'].map((text) => (
-            <ListItem key={text} sx={{fontSize: 40, color: '#5FA3A6'}} disablePadding>
-            <ListItemButton>
-              <ListItemText primary={text} />
-              </ListItemButton>
-              </ListItem>
-          ))}
-        </List>
-        <Divider />
-      </Box>
+    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+      <List>
+        {navLinks.map(({ text, href }) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton href={href}>
+              <ListItemText primary={text} sx={{ color: '#5FA3A6' }} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+    </Box>
     )
 
   return (

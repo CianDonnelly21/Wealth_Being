@@ -3,7 +3,6 @@
 import Header from '../components/Header';
 import { LineChart } from '@mui/x-charts/LineChart';
 import Typography from '@mui/material/Typography';
-import Header from '../components/Header';
 import Box from '@mui/material/Box';
 import useRequireAuth from '../hooks/useRequireAuth';
 
@@ -17,29 +16,28 @@ const data = [
     { day: 'Sun', mental: 6, physical: 7, emotional: 3 }
 ];
 
-export default function page() {
+export default function page(){
     const isCheckingAuth = useRequireAuth();
 
     if (isCheckingAuth) {
         return null;
     }
 
-const avgMentalScore =
-  data.reduce((sum, d) => sum + d.mental, 0) / data.length;
+    const avgMentalScore =
+    data.reduce((sum, d) => sum + d.mental, 0) / data.length;
 
-const avgPhysicalScore =
-  data.reduce((sum, d) => sum + d.physical, 0) / data.length;
+    const avgPhysicalScore =
+    data.reduce((sum, d) => sum + d.physical, 0) / data.length;
 
-const avgEmotionalScore =
-  data.reduce((sum, d) => sum + d.emotional, 0) / data.length;
+    const avgEmotionalScore =
+    data.reduce((sum, d) => sum + d.emotional, 0) / data.length;
 
-const finalScoreCalculation =
-    ((avgMentalScore + avgPhysicalScore + avgEmotionalScore) / 3) * 10
+    const finalScoreCalculation =
+        ((avgMentalScore + avgPhysicalScore + avgEmotionalScore) / 3) * 10
 
-const finalScoreDisplay =
-    Math.round(finalScoreCalculation);
+    const finalScoreDisplay =
+        Math.round(finalScoreCalculation);
 
-export default function analyticsPage() {
     return(
         <Box sx = {{
             minHeight: '50vh',
