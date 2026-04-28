@@ -9,4 +9,5 @@ def require_user(request: Request):
     return {
         "user_id": user_id,
         "email": request.session.get("email", ""),
+        "fullName": request.session.get("fullName", "")
     }

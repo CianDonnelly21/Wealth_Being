@@ -45,3 +45,6 @@ def getDiaryCollection():
 
 def getLoginCollection():
     return getCollection("Login")
+
+def getMoodtrackerCollection():
+    return getCollection("moodtracker_entry")

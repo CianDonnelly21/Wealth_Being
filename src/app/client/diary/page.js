@@ -72,7 +72,7 @@ export default function DiaryPage() {
         <Box sx={{ minHeight: '100vh', backgroundColor: '#E9F1EC', display: 'flex', flexDirection: 'column' }}>
             <Header />
             <Container maxWidth="md" sx={{ backgroundColor: '#FAFBF8', padding: 4, borderRadius: 2, mt: 2 }}>
-                <Typography variant="h2" gutterBottom sx={{ fontSize: '3rem', mb: 4 }}>
+                <Typography variant="h2" gutterBottom sx={{ color: '#5FA3A6', fontSize: '3rem', mb: 4 }}>
                     Daily Entry
                 </Typography>
                 <form onSubmit={handleSubmit}>
@@ -88,12 +88,12 @@ export default function DiaryPage() {
                             '& .MuiInputLabel-root': { fontSize: '1.1rem' }
                         }}
                     />
-                    <Button type="submit" variant="contained" sx={{ mt: 3, py: 2, px: 4, fontSize: '1.2rem' }}>Submit</Button>
+                    <Button type="submit" variant="contained" sx={{ backgroundColor: '#5FA3A6', mt: 3, py: 2, px: 4, fontSize: '1.2rem' }}>Submit</Button>
                 </form>
                 
                 {/* Past Entries */}
                 <div style={{ marginTop: '64px' }}>
-                    <Typography variant="h2" gutterBottom sx={{ fontSize: '2.5rem', mb: 4 }}>
+                    <Typography variant="h2" gutterBottom sx={{ color: '#5FA3A6', fontSize: '2.5rem', mb: 4 }}>
                         Past Entries
                     </Typography>
                     <div

@@ -19,6 +19,7 @@ async def login(request: Request):
 
     request.session["user_id"] = str(user["_id"])
     request.session["email"] = user["email"]
+    request.session["fullName"] = user["fullName"]
 
     return {'valid': True}
 
@@ -30,4 +31,4 @@ async def logout(request: Request):
 
 @router.get("/session/me")
 def me(session=Depends(require_user)):
-    return {"valid": True, "email": session["email"]}
+    return {"valid": True, "email": session["email"], "fullName": session["fullName"]}
