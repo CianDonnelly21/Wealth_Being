@@ -14,7 +14,7 @@ async def add_mood_entry(request: Request, session=Depends(require_user)):
     date = body.get('date') 
 
     # validate required fields
-    if not Question1 or not Question2 or not Question3 or not date:
+    if Question1 is None or Question2 is None or Question3 is None or not date:
         print("Missing required fields")
         return {"valid": False, "message": "You must answer all questions!"}
     
@@ -37,3 +37,22 @@ async def add_mood_entry(request: Request, session=Depends(require_user)):
         return {"valid": False, 
                 "error": str(error)
         }
+
+@router.get('/moodtracker/history')
+async def get_history(session=Depends(require_user)):
+    try:
+        moodtracker = getMoodtrackerCollection()
+
+        entries = list(
+            moodtracker.find(
+                {"userId": session["user_id"]}
+            ).sort("date", 1).limit(7)
+        )
+
+        for entry in entries:
+            entry["_id"] = str(entry["_id"])
+
+        return {"valid": True, "data": entries}
+
+    except Exception as error:
+        return {"valid": False, "error": str(error)}
