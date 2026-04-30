@@ -92,12 +92,12 @@ export default function Page() {
           <ChatIcon sx={{ fontSize: 80, color: '#5FA3A6' }} />
         </Box>
         <CardContent sx={{ color: '#5FA3A6'}}>
-        <Typography gutterBottom variant="h5" component="div">Chatbot</Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>Talk to our supportive chatbot and get feedback to improve your experience.</Typography>
+        <Typography gutterBottom variant="h5" component="div">Wibble</Typography>
+        <Typography variant="body2" sx={{ color: 'text.secondary' }}>Talk to our supportive chatbot Wibble to brighten your day!</Typography>
         </CardContent>
         </CardActionArea>
         <CardActions>
-          <Link href="/client/chatbot" >
+          <Link href="/client/wibble" >
           <Button size="small" sx={{ color: '#5FA3A6', fontWeight: 'bold'}}>
             Visit
           </Button>
