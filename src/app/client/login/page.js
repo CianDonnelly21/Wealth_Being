@@ -70,13 +70,12 @@ export default function loginPage() {
                         return (
 
                             <Box sx = {{
-                                    backgroundImage: "url('/images/Background_Img.png')",
-                                    backgroundSize: 'cover',
-                                    opacity: 0.8
+                                    backgroundImage: "url('/images/floralBackground.png')",
+                                    backgroundSize: 'cover'
                                 }}
                             >
 
-                            <Container maxWidth = "sm">
+                            <Container maxWidth = "md">
 
                                 {/* Centers everything on the screen */}
                                 <Box sx = {{
@@ -92,15 +91,16 @@ export default function loginPage() {
                                 <Box component = "form" onSubmit = {handleSubmit} noValidate sx = {{
                                         position: 'relative',
                                         width: '100%',
-                                        maxWidth: 400,
+                                        maxWidth: 500,
                                         borderRadius: 2,
                                         overflow: 'auto',
-                                        padding: 4,
+                                        padding: 6,
                                         display: 'flex',
                                         flexDirection: 'column',
                                         alignItems: 'center'
                                     }}
                                 >
+
 
                                 {/* Background of/and form inputs */}
                                 <Box sx = {{ position: 'relative' }}>
@@ -109,28 +109,31 @@ export default function loginPage() {
                                         <Box sx = {{
                                             position: 'absolute',
                                             inset: 0,
-                                            backgroundColor: '#212121',
-                                            opacity: 0.4,
+                                            backgroundColor: 'rgba(255, 255, 255, 0.4)',
+                                            border: '1px solid white',
+                                            borderRadius: '10px',
                                             zIndex: 0,
-                                            borderRadius: 2
+                                            borderRadius: 2,
+                                            padding: '20px',
                                         }}
                                     />
 
-                                    {/* Header for form */}
-                                    <h1 style = {{
-                                        padding: 2,
-                                        textAlign: 'center'
-                                    }}>
-                                        Login Below
-                                    </h1>
+                                    
 
                                     {/* Spacing for background of form */}
                                     <Box sx = {{
+                                            color: '#612207',
                                             position: 'relative',
                                             zIndex: 1,
                                             padding: 4
                                         }}
                                     >
+
+                                    <h1 style={{ color: '#612207', textAlign: 'center', padding: 2 }}>
+                                        Welcome Back
+                                    </h1>
+                                    
+                                    
 
                                     {/* Text field positioning */}
                                     <Box sx = {{
@@ -140,7 +143,18 @@ export default function loginPage() {
                                     >
 
                                         {/* Email input field */}
-                                        <TextField sx = {{ backgroundColor: '#ffff' }}
+                                        <TextField sx = {{ 
+                                            backgroundColor: '#ffff',
+                                            '& .MuiOutlinedInput-root': { 
+                                                '&.Mui-focused fieldset': {
+                                                    borderColor: '#E65100',
+                                             },
+                                            },
+                                             '& .MuiInputLabel-root.Mui-focused': {
+                                                color: '#E65100',
+                                             },
+
+                                         }}
                                             required
                                             id = "email"
                                             label = "Email"
@@ -150,7 +164,18 @@ export default function loginPage() {
                                         />
 
                                         {/* Password input field */}
-                                        <TextField sx = {{ backgroundColor: '#ffff' }}
+                                        <TextField sx = {{
+                                             backgroundColor: '#ffff' , 
+                                             '& .MuiOutlinedInput-root': { 
+                                                '&.Mui-focused fieldset': {
+                                                    borderColor: '#E65100',
+                                             },
+                                            },
+                                             '& .MuiInputLabel-root.Mui-focused': {
+                                                color: '#E65100',
+                                             },
+
+                                        }}
                                             margin = "normal"
                                             required
                                             name = "password"
@@ -162,6 +187,8 @@ export default function loginPage() {
 
                                     </Box>
 
+
+
                                     {/* Login button positioning */}
                                     <Box sx = {{
                                             width: '100%',
@@ -172,10 +199,10 @@ export default function loginPage() {
                                         {/* Login button positioning */}
                                         <Button type = "submit" fullWidth variant = "contained" sx = {{
                                                 marginTop: 5,
-                                                backgroundColor:'#18A558',
+                                                backgroundColor:'#E8855A',
                                                 width: 190,
                                                 fontSize: '18px',
-                                                borderRadius: 2
+                                                borderRadius: 8
                                             }}
                                         >
                                             LOGIN
@@ -199,10 +226,10 @@ export default function loginPage() {
                                         <Button type = "button" variant = "contained" sx = {{
                                             marginBottom: 5,
                                             marginTop: 2,
-                                            backgroundColor:'#18A558',
+                                            backgroundColor:'#E8855A',
                                             width: 190,
                                             fontSize: '15px',
-                                            borderRadius: 2
+                                            borderRadius: 8
                                         }}
                                             onClick={() => window.location.href = "/client/register"}
                                         >
