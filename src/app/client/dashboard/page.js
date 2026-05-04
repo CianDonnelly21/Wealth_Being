@@ -118,7 +118,7 @@ export default function Page() {
               <ArticleIcon sx={{ fontSize: 26, color: '#fff' }} />
             </Box>
             <Box>
-            <Typography sx={{ fontSize: '20px', color: '#3D1A06'}}>Diary</Typography>
+            <Typography sx={{ fontSize: '20px', color: '#883203'}}>Diary</Typography>
             <Typography sx={{ fontSize: '15px', color: '#8B3A1A'}}>Daily Journal</Typography>
             </Box>
             </Box>
@@ -152,7 +152,7 @@ export default function Page() {
         </Box>
 
         <Box>
-           <Typography sx={{ fontSize: '20px', color: '#3D1A06'}}>Wibble</Typography>
+           <Typography sx={{ fontSize: '20px', color: '#883203'}}>Wibble</Typography>
           <Typography sx={{ fontSize: '15px', color: '#8B3A1A'}}>Supportive ChatBot</Typography>
           </Box>
           </Box>
@@ -186,7 +186,7 @@ export default function Page() {
           </Box>
         
         <Box>
-        <Typography sx={{  fontSize: '20px', color: '#3D1A06'}}>Analytics</Typography>
+        <Typography sx={{  fontSize: '20px', color: '#883203'}}>Analytics</Typography>
         <Typography sx={{ fontSize: '15px', color: '#8B3A1A'}}>View your health progress</Typography>
         </Box>
         </Box>
@@ -220,7 +220,7 @@ export default function Page() {
         </Box>
 
         <Box>
-        <Typography sx={{ fontSize: '20px', color: '#3D1A06'}}>Mood Tracker</Typography>
+        <Typography sx={{ fontSize: '20px', color: '#883203'}}>Mood Tracker</Typography>
         <Typography sx={{ fontSize: '15px', color: '#8B3A1A'}}>Document your mood today</Typography>
         </Box>
         </Box>
