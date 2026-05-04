@@ -50,12 +50,12 @@ export default function Header() {
     ]
 
     const DrawerList = (
-    <Box sx={{ width: 300 }} role="presentation" onClick={toggleDrawer(false)}>
+    <Box sx={{ width: 175 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
         {navLinks.map(({ text, href }) => (
           <ListItem key={text} disablePadding>
             <ListItemButton href={href}>
-              <ListItemText primary={text} sx={{ color: '#E65100' }} />
+              <ListItemText primary={text} primaryTypographyProps={{ sx: { color: '#E65100', fontSize: 20 } }} />
             </ListItemButton>
           </ListItem>
         ))}

@@ -127,7 +127,7 @@ export default function page() {
 
        <Box sx={{backgroundColor: '#fff', borderBottom: '1px solid #E65100'}}> 
         <Typography variant="h4" sx={{color: '#883203', textAlign: 'left', marginLeft: 5, marginTop: 4, marginBottom: 4}}>
-          How are you feeling today, {user}? 
+          How would you rate your mood today, {user}? 
         </Typography>
         </Box>     
       
@@ -206,7 +206,7 @@ export default function page() {
       </Stack>
       <Box sx={{ textAlign: 'center', mt: 3, mb: 3 }}>
         <Button variant="contained" color="primary" onClick={handleSubmit}
-        sx={{ backgroundColor: '#E65100', fontcolor: '#FDF3EC',  '&:hover': {backgroundColor: '#4A8A8D', borderRadius: '4px',
+        sx={{ backgroundColor: '#E65100', px: 4, py: 2, fontcolor: '#FDF3EC',  '&:hover': {backgroundColor: '#E65100', borderRadius: '4px',
           px: 6, py: 2, fontSize: '16px', fontWeight: 'bold', color: 'white'
         }}}> Save progress</Button>
       </Box>
