@@ -71,9 +71,9 @@ export default function registerPage() {
                        return (
 
                            <Box sx = {{
-                                   backgroundImage: "url('/images/Background_Img.png')",
+                                   backgroundImage: "url('/images/floralBackground.png')",
                                    backgroundSize: 'cover',
-                                   opacity: 0.8
+
                                }}
                            >
 
@@ -107,31 +107,29 @@ export default function registerPage() {
                                <Box sx = {{ position: 'relative' }}>
 
                                    {/* Form Background */}
-                                       <Box sx = {{
-                                           position: 'absolute',
-                                           inset: 0,
-                                           backgroundColor: '#212121',
-                                           opacity: 0.4,
-                                           zIndex: 0,
-                                           borderRadius: 2
-                                       }}
-                                   />
+                                        <Box sx = {{
+                                            position: 'absolute',
+                                            inset: 0,
+                                            backgroundColor: 'rgba(255, 255, 255, 0.4)',
+                                            border: '1px solid white',
+                                            borderRadius: '10px',
+                                            zIndex: 0,
+                                            borderRadius: 2,
+                                            padding: '20px',
+                                        }}
+                                    />
 
-                                   {/* Header for form */}
-                                   <h1 style = {{
-                                       padding: 2,
-                                       textAlign: 'center'
-                                   }}>
-                                       Register Below
-                                   </h1>
-
-                                   {/* Spacing for background of form */}
                                    <Box sx = {{
-                                           position: 'relative',
-                                           zIndex: 1,
-                                           padding: 4
-                                       }}
-                                   >
+                                            color: '#612207',
+                                            position: 'relative',
+                                            zIndex: 1,
+                                            padding: 4
+                                        }}
+                                    >
+
+                                    <h1 style={{ color: '#612207', textAlign: 'center', padding: 2 }}>
+                                        Welcome Back
+                                    </h1>
 
                                    {/* Text field positioning */}
                                    <Box sx = {{
@@ -141,7 +139,18 @@ export default function registerPage() {
                                    >
 
                                        {/* Full name input field */}
-                                       <TextField sx = {{ backgroundColor: '#ffff' }}
+                                       <TextField sx = {{
+                                         backgroundColor: '#ffff',
+                                         '& .MuiOutlinedInput-root': { 
+                                                '&.Mui-focused fieldset': {
+                                                    borderColor: '#E65100',
+                                             },
+                                            },
+                                             '& .MuiInputLabel-root.Mui-focused': {
+                                                color: '#E65100',
+                                             },
+
+                                         }}
                                            margin = "normal"
                                            required
                                            name = "fullName"
@@ -152,7 +161,17 @@ export default function registerPage() {
                                        />
 
                                        {/* Email input field */}
-                                       <TextField sx = {{ backgroundColor: '#ffff' }}
+                                       <TextField sx = {{ 
+                                        backgroundColor: '#ffff',
+                                        '& .MuiOutlinedInput-root': { 
+                                                '&.Mui-focused fieldset': {
+                                                    borderColor: '#E65100',
+                                             },
+                                            },
+                                             '& .MuiInputLabel-root.Mui-focused': {
+                                                color: '#E65100',
+                                             },
+                                     }}
                                            margin = "normal"
                                            required
                                            name = "email"
@@ -164,7 +183,17 @@ export default function registerPage() {
 
 
                                        {/* Confirm email input field */}
-                                       <TextField sx = {{ backgroundColor: '#ffff' }}
+                                       <TextField sx = {{ 
+                                            backgroundColor: '#ffff',
+                                            '& .MuiOutlinedInput-root': { 
+                                                '&.Mui-focused fieldset': {
+                                                    borderColor: '#E65100',
+                                             },
+                                            },
+                                             '& .MuiInputLabel-root.Mui-focused': {
+                                                color: '#E65100',
+                                             },
+                                         }}
                                            margin = "normal"
                                            required
                                            name = "confirmEmail"
@@ -175,7 +204,17 @@ export default function registerPage() {
                                        />
 
                                        {/* Create password input field */}
-                                       <TextField sx = {{ backgroundColor: '#ffff' }}
+                                       <TextField sx = {{
+                                         backgroundColor: '#ffff',
+                                         '& .MuiOutlinedInput-root': { 
+                                                '&.Mui-focused fieldset': {
+                                                    borderColor: '#E65100',
+                                             },
+                                            },
+                                             '& .MuiInputLabel-root.Mui-focused': {
+                                                color: '#E65100',
+                                             },
+                                         }}
                                            margin = "normal"
                                            required
                                            name = "createPassword"
@@ -186,7 +225,17 @@ export default function registerPage() {
                                        />
 
                                        {/* Verify password input field */}
-                                       <TextField sx = {{ backgroundColor: '#ffff' }}
+                                       <TextField sx = {{
+                                         backgroundColor: '#ffff',
+                                         '& .MuiOutlinedInput-root': { 
+                                                '&.Mui-focused fieldset': {
+                                                    borderColor: '#E65100',
+                                             },
+                                            },
+                                             '& .MuiInputLabel-root.Mui-focused': {
+                                                color: '#E65100',
+                                             },
+                                         }}
                                            margin = "normal"
                                            required
                                            name = "verifyPassword"
@@ -207,11 +256,11 @@ export default function registerPage() {
 
                                        {/* Register button positioning */}
                                        <Button type="submit" fullWidth variant="contained" sx={{
-                                                   marginTop: 5,
-                                                   backgroundColor:'#18A558',
+                                                   marginTop: 2,
+                                                   backgroundColor:'#E8855A',
                                                    width: 190,
                                                    fontSize: '18px',
-                                                   borderRadius: 2
+                                                   borderRadius: 8
                                                }}
                                            >
                                                REGISTER
@@ -225,7 +274,7 @@ export default function registerPage() {
                                            }}
                                        >
                                            <p style={{
-                                                   marginTop: 100,
+                                                    marginTop: 50,
                                                    fontSize: '22px'
                                                }}
                                            >
@@ -235,10 +284,10 @@ export default function registerPage() {
                                        <Button type="button" variant="contained" sx={{
                                                marginBottom: 5,
                                                marginTop: 2,
-                                               backgroundColor:'#18A558',
+                                               backgroundColor:'#E8855A',
                                                width: 190,
                                                fontSize: '15px',
-                                               borderRadius: 2
+                                               borderRadius: 8
                                            }}
                                            onClick={() => window.location.href = "/client/login"}
                                        >

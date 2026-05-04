@@ -74,7 +74,7 @@ export default function page() {
   const isCheckingAuth = useRequireAuth();
 
     // set default value for each icon to be 3
-  const [ratings, setRatings] = useState({Question1:3, Question2:3, Question3:3});
+  const [ratings, setRatings] = useState({Question1:3, Question2:3, Question3:3, Question4: 4, Question5:5});
 
   const [user, setUsersName] = useState('');
 
@@ -105,6 +105,8 @@ export default function page() {
           Question1: ratings.Question1,
           Question2: ratings.Question2,
           Question3: ratings.Question3,
+          Question4: ratings.Question4,
+          Question5: ratings.Question5,
           date: new Date().toISOString(),
       }),
     });
@@ -120,17 +122,19 @@ export default function page() {
 
 
     return(
-        <Box sx={{minHeight: '100vh', backgroundColor: '#E9F1EC', display:'flex', flexDirection: 'column' }}>
+        <Box sx={{minHeight: '100vh', backgroundColor: '#FDF3EC', display:'flex', flexDirection: 'column' }}>
             <Header />
-        
 
-       <Typography variant="h4" sx={{color: '#5FA3A6', textAlign: 'center', marginTop: 4, marginBottom: 4}}>
-        How are you feeling today, {user}? 
-      </Typography>
+       <Box sx={{backgroundColor: '#fff', borderBottom: '1px solid #E65100'}}> 
+        <Typography variant="h4" sx={{color: '#883203', textAlign: 'left', marginLeft: 5, marginTop: 4, marginBottom: 4}}>
+          How are you feeling today, {user}? 
+        </Typography>
+        </Box>     
+      
       <Stack spacing={2} sx={{ maxWidth: 1000, margin: '0 auto', padding: 4}}>
         <Item sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             
-            <Typography variant="h6"  sx={{color: '#5FA3A6', marginBottom: '8px', fontSize: '30px'}}>
+            <Typography variant="h6"  sx={{color: '#E65100', marginBottom: '8px', fontSize: '30px'}}>
               How would you rate your stress today?
             </Typography>
             <StyledRating
@@ -144,7 +148,7 @@ export default function page() {
         </Item>
 
         <Item sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-             <Typography variant="h6"  sx={{color: '#5FA3A6', marginBottom: '8px', fontSize: '30px'}}>
+             <Typography variant="h6"  sx={{color: '#E65100', marginBottom: '8px', fontSize: '30px'}}>
               How would you rate your energy today?
             </Typography>
              <StyledRating
@@ -158,7 +162,7 @@ export default function page() {
         </Item>
 
         <Item sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-             <Typography variant="h6"  sx={{color: '#5FA3A6', marginBottom: '8px', fontSize: '30px'}}>
+             <Typography variant="h6"  sx={{color: '#E65100', marginBottom: '8px', fontSize: '30px'}}>
               How would you rate your overall mood today?
             </Typography>
              
@@ -171,10 +175,38 @@ export default function page() {
                 highlightSelectedOnly
             />
         </Item>
+
+        <Item sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+             <Typography variant="h6"  sx={{color: '#E65100', marginBottom: '8px', fontSize: '30px'}}>
+              How would you rate your sleep quality last night?
+            </Typography>
+             <StyledRating
+                name="Question4"
+                value={ratings.Question4}
+                onChange={(_, newValue) => setRatings((prev) => ({...prev, Question4: newValue}))}
+                IconContainerComponent={IconContainer}
+                getLabelText={(value) => customIcons[value].label}
+                highlightSelectedOnly
+              />
+        </Item>
+
+        <Item sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+             <Typography variant="h6"  sx={{color: '#E65100', marginBottom: '8px', fontSize: '30px'}}>
+              How would you rate your productivity today?
+            </Typography>
+             <StyledRating
+                name="Question5"
+                value={ratings.Question5}
+                onChange={(_, newValue) => setRatings((prev) => ({...prev, Question5: newValue}))}
+                IconContainerComponent={IconContainer}
+                getLabelText={(value) => customIcons[value].label}
+                highlightSelectedOnly
+              />
+        </Item>
       </Stack>
       <Box sx={{ textAlign: 'center', mt: 3, mb: 3 }}>
         <Button variant="contained" color="primary" onClick={handleSubmit}
-        sx={{ backgroundColor: '#5FA3A6', '&:hover': {backgroundColor: '#4A8A8D', borderRadius: '4px',
+        sx={{ backgroundColor: '#E65100', fontcolor: '#FDF3EC',  '&:hover': {backgroundColor: '#4A8A8D', borderRadius: '4px',
           px: 6, py: 2, fontSize: '16px', fontWeight: 'bold', color: 'white'
         }}}> Save progress</Button>
       </Box>

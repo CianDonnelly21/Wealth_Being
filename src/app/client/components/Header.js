@@ -50,12 +50,12 @@ export default function Header() {
     ]
 
     const DrawerList = (
-    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+    <Box sx={{ width: 300 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
         {navLinks.map(({ text, href }) => (
           <ListItem key={text} disablePadding>
             <ListItemButton href={href}>
-              <ListItemText primary={text} sx={{ color: '#5FA3A6' }} />
+              <ListItemText primary={text} sx={{ color: '#E65100' }} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -71,23 +71,27 @@ export default function Header() {
       <Toolbar sx={{ minHeight: '80px !important', padding: '0 24px' }}>
 
         <Button onClick={toggleDrawer(true)}>
-          <DensityMediumIcon sx={{fontSize: 40, color: '#5FA3A6'}}></DensityMediumIcon>
+          <DensityMediumIcon sx={{fontSize: 35, color: '#E65100'}}></DensityMediumIcon>
           </Button>
         <Drawer open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
         </Drawer>
 
         {/* logo */}
-        <Typography variant="h3" className={`${pacifico.className} font-pacifico`} sx={{ flexGrow: 1, color: '#5fa3a6', fontFamily: 'Pacifico, cursive', fontSize: '2.5rem' }}>
-          WealthBeing 
+        <Typography variant="h3" className={`${pacifico.className} font-pacifico`} sx={{ flexGrow: 1, color: '#E65100', fontFamily: 'Pacifico, cursive', fontSize: '2.5rem' }}>
+          <Box component="span" sx={{color: '#E65100'}}>
+          Wealth
+          </Box>
+          
+          <Box component="span" sx={{color: '#883203'}}>Being</Box>
         </Typography>
 
         {/* icons */}
         <Box>
           <IconButton href="/client/dashboard" sx={{ padding: '12px', margin: '0 8px' }}>
-            <HomeIcon sx={{fontSize: 40, color: '#5FA3A6'}}></HomeIcon>
+            <HomeIcon sx={{fontSize: 40, color: '#E65100'}}></HomeIcon>
           </IconButton>
-          <Button onClick={handleLogout} sx={{ color: '#5FA3A6', fontWeight: 'bold' }}>
+          <Button onClick={handleLogout} sx={{ color: '#E65100', fontWeight: 'bold' }}>
             Logout
           </Button>
         </Box>

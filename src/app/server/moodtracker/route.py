@@ -11,10 +11,12 @@ async def add_mood_entry(request: Request, session=Depends(require_user)):
     Question1 = body.get('Question1')
     Question2 = body.get('Question2')
     Question3 = body.get('Question3') 
+    Question4 = body.get('Question4')
+    Question5 = body.get('Question5')
     date = body.get('date') 
 
     # validate required fields
-    if Question1 is None or Question2 is None or Question3 is None or not date:
+    if Question1 is None or Question2 is None or Question3 is None or Question4 is None or Question5 is None or not date:
         print("Missing required fields")
         return {"valid": False, "message": "You must answer all questions!"}
     
@@ -26,6 +28,8 @@ async def add_mood_entry(request: Request, session=Depends(require_user)):
             "Question1": Question1,
             "Question2": Question2,
             "Question3": Question3,
+            "Question4": Question4,
+            "Question5": Question5,
             "date": date
         })
 
