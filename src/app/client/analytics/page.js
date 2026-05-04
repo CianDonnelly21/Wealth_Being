@@ -70,7 +70,7 @@ export default function page() {
         <Box sx={{
             minHeight: '50vh',
             width: '100%',
-            backgroundColor: '#E9F1EC',
+            backgroundColor: '#FFF6F2',
             display: 'flex',
             flexDirection: 'column',
         }}>
@@ -80,7 +80,7 @@ export default function page() {
                 variant='h4'
                 sx={{
                     mb: 3,
-                    color: '#1F2937',
+                    color: '#8A4B2E',
                     textAlign: 'center',
                     marginTop: 2
                 }}
@@ -93,40 +93,41 @@ export default function page() {
                 dataset={data}
                 xAxis={[{ scaleType: "point", dataKey: "day" }]}
                 series={[
-                    { dataKey: "mental", label: "Mental", color: "#14b8a6" },
-                    { dataKey: "physical", label: "Physical", color: "#60a5fa" },
-                    { dataKey: "emotional", label: "Emotional", color: "#f87171" },
+                    { dataKey: "mental", label: "Mental", color: "#E65100" },
+                    { dataKey: "physical", label: "Physical", color: "#C96A34" },
+                    { dataKey: "emotional", label: "Emotional", color: "#8A4B2E" },
                 ]}
                 height={320}
             />
 
             {/* WEEKLY SCORE */}
             <Box sx={{
-                background: 'white',
+                background: '#FFF8F6',
                 padding: 3,
                 borderRadius: 3,
                 marginBottom: 3,
-                textAlign: 'center'
+                textAlign: 'center',
+                border: '1px solid #F3D7CC'
             }}>
-                <Typography variant='h6'>Weekly Wellness Score</Typography>
-                <Typography variant='h3' sx={{ color: '#14b8a6', fontWeight: 700 }}>
+                <Typography variant='h6' sx={{ color: '#8A4B2E' }}>Weekly Wellness Score</Typography>
+                <Typography variant='h3' sx={{ color: '#E65100', fontWeight: 700 }}>
                     {finalScoreDisplay}%
                 </Typography>
             </Box>
 
             {/* WEEKLY AVERAGES */}
-            <Typography variant='h6' sx={{ textAlign: 'center', paddingBottom: 2 }}>
+            <Typography variant='h6' sx={{ textAlign: 'center', paddingBottom: 2, color: '#8A4B2E' }}>
                 Weekly Averages
             </Typography>
 
             <Box sx={{ display: 'flex', gap: 2, mb: 3, justifyContent: 'center' }}>
-                <Box sx={{ p: 2, background: 'white', borderRadius: 2 }}>
+                <Box sx={{ p: 2, background: '#FFF8F6', borderRadius: 2, border: '1px solid #F3D7CC', color: '#5A4238' }}>
                     🧠 Mental: {avgMentalScore.toFixed(1)}
                 </Box>
-                <Box sx={{ p: 2, background: 'white', borderRadius: 2 }}>
+                <Box sx={{ p: 2, background: '#FFF8F6', borderRadius: 2, border: '1px solid #F3D7CC', color: '#5A4238' }}>
                     🏃 Physical: {avgPhysicalScore.toFixed(1)}
                 </Box>
-                <Box sx={{ p: 2, background: 'white', borderRadius: 2 }}>
+                <Box sx={{ p: 2, background: '#FFF8F6', borderRadius: 2, border: '1px solid #F3D7CC', color: '#5A4238' }}>
                     😪 Emotional: {avgEmotionalScore.toFixed(1)}
                 </Box>
             </Box>
