@@ -90,11 +90,11 @@ export default function WibblePage() {
     }
 
         return (
-            <Box sx={{ minHeight: '100vh', backgroundColor: '#E9F1EC', display: 'flex', flexDirection: 'column' }}>
+            <Box sx={{ minHeight: '100vh', backgroundColor: '#fff', display: 'flex', flexDirection: 'column' }}>
         <Header />
                 <Container maxWidth="md" sx={{ mt: 2, mb: 3 }}>
-                    <Paper elevation={0} sx={{ backgroundColor: '#FAFBF8', borderRadius: 2, p: 3, border: '1px solid #D8E8DF' }}>
-                        <Typography variant="h4" sx={{ color: '#5FA3A6', fontWeight: 700, mb: 2 }}>
+                    <Paper elevation={0} sx={{ backgroundColor: '#fffcf7', borderRadius: 2, p: 3, border: '1px solid #D8E8DF' }}>
+                        <Typography variant="h4" sx={{ color: '#883203', fontWeight: 700, mb: 2 }}>
                             Talk To Wibble
                         </Typography>
 
@@ -124,7 +124,7 @@ export default function WibblePage() {
                                         >
                                             {/* avatar for wibble messages */}
                                             {!isUser && (
-                                                <Avatar sx={{ bgcolor: '#5FA3A6', width: 34, height: 34 }}>
+                                                <Avatar sx={{ bgcolor: '#E65100', width: 34, height: 34 }}>
                                                     <SmartToyRoundedIcon fontSize="small" />
                                                 </Avatar>
                                             )}
@@ -135,8 +135,8 @@ export default function WibblePage() {
                                                     px: 1.5,
                                                     py: 1.2,
                                                     borderRadius: 2,
-                                                    bgcolor: isUser ? '#5FA3A6' : '#E9F1EC', // set background color based on message role i.e. user or wibble
-                                                    color: isUser ? '#FFFFFF' : '#294640'
+                                                    bgcolor: isUser ? '#E65100' : '#fcf5e9', // set background color based on message role i.e. user or wibble
+                                                    color: isUser ? '#FFFFFF' : '#883203'
                                                 }}
                                             >
                                                 <Typography variant="body1" sx={{ whiteSpace: 'pre-wrap' }}>
@@ -146,7 +146,7 @@ export default function WibblePage() {
 
                                             {/* avatar for user messages */}
                                             {isUser && (
-                                                <Avatar sx={{ bgcolor: '#79B7BA', width: 34, height: 34 }}>
+                                                <Avatar sx={{ bgcolor: '#E65100', width: 34, height: 34 }}>
                                                     <PersonRoundedIcon fontSize="small" />
                                                 </Avatar>
                                             )}
@@ -155,11 +155,11 @@ export default function WibblePage() {
                                 })}
                                 {isSending && (
                                     <Stack direction="row" spacing={1.25} sx={{ justifyContent: 'flex-start', alignItems: 'center' }}>
-                                        <Avatar sx={{ bgcolor: '#5FA3A6', width: 34, height: 34 }}>
+                                        <Avatar sx={{ bgcolor: '#E65100', width: 34, height: 34 }}>
                                             <SmartToyRoundedIcon fontSize="small" />
                                         </Avatar>
-                                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, px: 1.5, py: 1.2, borderRadius: 2, bgcolor: '#E9F1EC', color: '#294640' }}>
-                                            <CircularProgress size={16} sx={{ color: '#5FA3A6' }} />
+                                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, px: 1.5, py: 1.2, borderRadius: 2, bgcolor: '#fcf5e9', color: '#883203' }}>
+                                            <CircularProgress size={16} sx={{ color: '#E65100' }} />
                                             <Typography variant="body2">Wibble is typing...</Typography> 
                                         </Box>
                                     </Stack>
@@ -189,12 +189,12 @@ export default function WibblePage() {
                                 type="submit"
                                 disabled={!draft.trim() || isSending}
                                 sx={{
-                                    bgcolor: '#5FA3A6',
+                                    bgcolor: '#E65100',
                                     color: '#FFFFFF',
                                     width: 52,
                                     height: 52,
-                                    '&:hover': { bgcolor: '#4E8F92' },
-                                    '&.Mui-disabled': { bgcolor: '#B7CFCA', color: '#EDF4F1' }
+                                    '&:hover': { bgcolor: '#a13b04' },
+                                    '&.Mui-disabled': { bgcolor: '#f39a6a', color: '#EDF4F1' }
                                 }}
                                 aria-label="Send message"
                             >

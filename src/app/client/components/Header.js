@@ -46,7 +46,8 @@ export default function Header() {
       {text: 'Home', href: '/client/dashboard'},
       {text: 'Diary', href: '/client/diary'},
       {text: 'Mood Tracker', href: '/client/moodtracker'},
-      {text: 'Analytics', href: '/client/analytics'}
+      {text: 'Analytics', href: '/client/analytics'},
+      {text: 'Wibble', href: '/client/wibble'},
     ]
 
     const DrawerList = (
