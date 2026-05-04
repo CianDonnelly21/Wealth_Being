@@ -3,3 +3,5 @@ uvicorn
 pymongo
 bcrypt
 python-dotenv
+itsdangerous
+groq

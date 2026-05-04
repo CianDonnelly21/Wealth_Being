@@ -138,7 +138,7 @@ export default function Page() {
       {/* chatbot*/}
       <Grid item xs={12} md={6}>
         <Card sx={{ cardStyle }}>
-        <CardActionArea component={Link} href="/client/chatbot">
+        <CardActionArea component={Link} href="/client/wibble">
          <Box sx={{
             display: 'flex',
             alignItems: 'center',
@@ -152,8 +152,8 @@ export default function Page() {
         </Box>
 
         <Box>
-           <Typography sx={{ fontSize: '20px', color: '#3D1A06'}}>Chatbot</Typography>
-          <Typography sx={{ fontSize: '15px', color: '#8B3A1A'}}>Supportive Chat</Typography>
+           <Typography sx={{ fontSize: '20px', color: '#3D1A06'}}>Wibble</Typography>
+          <Typography sx={{ fontSize: '15px', color: '#8B3A1A'}}>Supportive ChatBot</Typography>
           </Box>
           </Box>
            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', px: 2, py: 1.5 }}>

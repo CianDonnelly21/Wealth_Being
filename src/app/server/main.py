@@ -3,6 +3,7 @@ from login.route import router as login_router
 from register.route import router as register_router
 from diary.route import router as diary_router
 from moodtracker.route import router as moodtracker_router
+from wibble.route import router as wibble_router
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.sessions import SessionMiddleware
 import os
@@ -35,3 +36,4 @@ app.include_router(login_router)
 app.include_router(register_router)
 app.include_router(diary_router)
 app.include_router(moodtracker_router)
+app.include_router(wibble_router)
