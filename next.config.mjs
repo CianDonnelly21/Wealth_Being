@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       {
         source: '/server/:path*',
-        destination: 'http://localhost:8000/:path*',
+        destination: 'https://wealth-being-api-for-app.onrender.com/:path*',
       },
     ];
   },
