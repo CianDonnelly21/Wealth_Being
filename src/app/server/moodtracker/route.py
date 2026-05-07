@@ -43,15 +43,11 @@ async def add_mood_entry(request: Request, session=Depends(require_user)):
         }
 
 @router.get('/moodtracker/history')
-async def get_history(session=Depends(require_user)):
+async def get_history(session = Depends(require_user)):
     try:
         moodtracker = getMoodtrackerCollection()
 
-        entries = list(
-            moodtracker.find(
-                {"userId": session["user_id"]}
-            ).sort("date", 1).limit(7)
-        )
+        entries = list(moodtracker.find({"userId": session["user_id"]}).sort("date", 1).limit(7))
 
         for entry in entries:
             entry["_id"] = str(entry["_id"])

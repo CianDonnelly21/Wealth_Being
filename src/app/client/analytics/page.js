@@ -33,16 +33,24 @@ export default function page() {
                     (a, b) => new Date(a.date) - new Date(b.date)
                 );
 
-                const formatted = sorted.map(entry => ({
-                    day: new Date(entry.date).toLocaleDateString('en-IE', {
-                        weekday: 'short'
-                    }),
-                    mental: entry.Question3 * 2,
-                    physical: entry.Question2 * 2,
-                    emotional: entry.Question1 * 2
-                }));
+                const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
-                setData(formatted);
+    const formatted = weekDays.map(day => {
+        const entry = sorted.find(e =>
+            new Date(e.date).toLocaleDateString('en-IE', {
+                weekday: 'short'
+            }) === day
+        );
+
+        return {
+            day,
+            mental: entry ? entry.Question3 * 2 : 0,
+            physical: entry ? entry.Question2 * 2 : 0,
+            emotional: entry ? entry.Question1 * 2 : 0
+        };
+});
+
+    setData(formatted);
             }
         });
     }, []);

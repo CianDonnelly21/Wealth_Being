@@ -41,6 +41,7 @@ export default function loginPage() {
     async function runDBCallAsync(payload) {
         const res = await fetch('/server/login', {
             method: 'POST',
+            credentials: 'include',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(payload),
         });
