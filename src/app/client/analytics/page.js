@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import useRequireAuth from '../hooks/useRequireAuth';
 
 export default function page() {
-    const isCheckingAuth = useRequireAuth();
+    const isCheckingAuth = useRequireAuth(); // Checks if user has a valid session
 
     const [data, setData] = useState([]);
 
@@ -35,44 +35,60 @@ export default function page() {
 
                 const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
-    const formatted = weekDays.map(day => {
-        const entry = sorted.find(e =>
-            new Date(e.date).toLocaleDateString('en-IE', {
-                weekday: 'short'
-            }) === day
-        );
+                const formatted = weekDays.map(day => {
+                const entry = sorted.find(e =>
+                    new Date(e.date).toLocaleDateString('en-IE', {
+                        weekday: 'short'
+                    }) === day
+                );
 
-        return {
-            day,
-            mental: entry ? entry.Question3 * 2 : 0,
-            physical: entry ? entry.Question2 * 2 : 0,
-            emotional: entry ? entry.Question1 * 2 : 0
-        };
-});
+                const formatted = weekDays.map(day => {
+                    const entry = sorted.find(e =>
+                        new Date(e.date).toLocaleDateString('en-IE', {
+                            weekday: 'short'
+                        }) === day
+                    );
 
-    setData(formatted);
+                return {
+                    day,
+                    mental: entry && entry.Question3 * 2,
+                    physical: entry && entry.Question2 * 2,
+                    emotional: entry && entry.Question1 * 2,
+
+                    total: entry && (
+                        entry.Question1 +
+                        entry.Question2 +
+                        entry.Question3 +
+                        entry.Question4 +
+                        entry.Question5
+                    ) * 4
+                };
+            });
+
+            setData(formatted);
             }
         });
     }, []);
 
-    if (isCheckingAuth) return null;
+    if (isCheckingAuth) return null; // While checking user logged in display nothing
 
     // WEEKLY AVERAGES
-    const avgMentalScore = data.length
-        ? data.reduce((sum, d) => sum + d.mental, 0) / data.length
-        : 0;
+    let avgMentalScore = 0;
+    let avgPhysicalScore = 0;
+    let avgEmotionalScore = 0;
 
-    const avgPhysicalScore = data.length
-        ? data.reduce((sum, d) => sum + d.physical, 0) / data.length
-        : 0;
+    if (data.length > 0) {
+        avgMentalScore =
+            data.reduce((sum, d) => sum + d.mental, 0) / data.length;
 
-    const avgEmotionalScore = data.length
-        ? data.reduce((sum, d) => sum + d.emotional, 0) / data.length
-        : 0;
+        avgPhysicalScore =
+            data.reduce((sum, d) => sum + d.physical, 0) / data.length;
 
-    const finalScoreDisplay = data.length
-        ? Math.round(((avgMentalScore + avgPhysicalScore + avgEmotionalScore - 6) / 24) * 100)
-        : 0;
+        avgEmotionalScore =
+            data.reduce((sum, d) => sum + d.emotional, 0) / data.length;
+    }
+
+    const finalScoreDisplay = Math.round(data.reduce((sum, d) => sum + d.total, 0) / data.length);
 
     return (
         <Box sx={{
